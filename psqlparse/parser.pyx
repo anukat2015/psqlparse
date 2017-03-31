@@ -2,7 +2,6 @@ import json
 
 import six
 
-from .nodes.utils import build_from_obj
 from .exceptions import PSqlParseError
 from .pg_query cimport (pg_query_parse, pg_query_free_parse_result,
                        PgQueryParseResult)
@@ -29,6 +28,5 @@ def parse(query):
 
     statement_dicts = json.loads(result.parse_tree.decode('utf8'),
                                  strict=False)
-    statements = [build_from_obj(obj) for obj in statement_dicts]
     pg_query_free_parse_result(result)
-    return statements
+    return statement_dicts

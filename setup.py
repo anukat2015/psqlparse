@@ -47,5 +47,5 @@ setup(name='psqlparse',
       install_requires=['six'],
       license='BSD',
       cmdclass={'build_ext': PSqlParseBuildExt},
-      packages=['psqlparse', 'psqlparse.nodes'],
+      packages=['psqlparse'],
       ext_modules=extensions)
